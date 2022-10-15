@@ -21,5 +21,4 @@ public class NUpcount {
         }
         return count;
    }
-
 }
