@@ -9,30 +9,26 @@ public class PrimeCount {
         System.out.println(primeCount(-10,6));
     }
 
-    static int primeCount(int start, int end){
+   static int primeCount(int start, int end){
         int count = 0;
-
-        if(start == 1 || start>end){
+        if(end == 1 || start>end){
             return 0;
         }
-
-        if(start<0){
+        if(start < 0){
             start = 2;
         }
-
-        for(int i = start; i<=end; i++){
-            boolean isNonPrime = false;
-            for(int j=2; j < i; j++){
+        for(int i = start; i<= end; i++){
+            boolean nonPrime = false;
+            for(int j = 2; j < i; j++){
                 if(i%j == 0){
-                    isNonPrime = true;
+                    nonPrime = true;
                     continue;
                 }
             }
-            if(!isNonPrime){
+            if(!nonPrime){
                 count++;
             }
         }
-
         return count;
-    }
+   }
 }
