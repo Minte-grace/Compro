@@ -8,12 +8,13 @@ public class ReverseInteger {
         System.out.println(reverseInt(-12345));
     }
     static int reverseInt(int n){
-        int reverse = 0;
+        int reversed = 0;
 
-        while (n != 0){
-            reverse = n%10 + reverse*10;
+        while(n!=0){
+            reversed = reversed*10 + n%10;
             n = n/10;
         }
-        return reverse;
+        return reversed;
+
     }
 }
