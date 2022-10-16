@@ -4,16 +4,21 @@ public class GuthericSequence {
         System.out.println(isGuthericSequence(testArray));
     }
     static int isGuthericSequence(int[] a){
-        int flag = 1;
+        int flag = 0;
+
         if(a[a.length-1] != 1) return 0;
-        for(int i =0; i< a.length -1; i++){
-            if(a[i]%2==0){
-                if(a[i+1] != a[i]/2){
+        for(int i=0; i<a.length-1; i++){
+            if(a[i]%2 == 0){
+                if(a[i+1] == a[i]/2){
+                    flag =1;
+                } else {
                     flag = 0;
                     break;
                 }
             } else {
-                if(a[i+1] != 3*a[i]+1){
+                if(a[i+1] == a[i]*3+1){
+                    flag =1;
+                } else {
                     flag = 0;
                     break;
                 }
