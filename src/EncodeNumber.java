@@ -1,36 +1,43 @@
+import java.util.Arrays;
+
 public class EncodeNumber {
 
     public static void main(String[] args){
-        System.out.println(encodeNumber(6936));
+        System.out.println(Arrays.toString(encodeNumber(2)));
+        System.out.println(Arrays.toString(encodeNumber(6)));
+        System.out.println(Arrays.toString(encodeNumber(14)));
+        System.out.println(Arrays.toString(encodeNumber(24)));
+        System.out.println(Arrays.toString(encodeNumber(1200)));
     }
     static int[] encodeNumber(int n){
+        int origionalNumber = n;
         int count = 0;
-        int num = 1;
-        for(int i=2; i<n; i++){
-            if(isPrime(i)==1){
-                num = num*i;
+        int div = 2;
+        while(n>1){
+            if(n%div==0){
+                n=n/div;
                 count++;
-                if(num==n){
-                    int[] e = new int[count];
-                    for(int j=0; j<count; j++){
-                        e[j] = i;
-                    }
-                    return e;
-                }
+                div=2;
+            }else {
+                div++;
             }
+
         }
-        return null;
-
-    }
-
-    static int isPrime(int n){
-        int result =1;
-        for(int i=2; i<n;i++){
-            if(n%i == 0){
-                result = 0;
-                break;
+        int[] encoded = new int[count];
+        div = 2;
+        count=0;
+        n=origionalNumber;
+        while(n>1){
+            if(n%div==0){
+                encoded[count] = div;
+                n=n/div;
+                count++;
+                div=2;
+            }else {
+                div++;
             }
+
         }
-        return result;
+        return encoded;
     }
 }
